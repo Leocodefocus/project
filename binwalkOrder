@@ -1,0 +1,56 @@
+git升级：git clone git://git.kernel.org/pub/scm/git/git.git
+文本编辑器配置：git config --global core.editor emacs
+git config --list:查看配置信息
+获取帮助：
+	git help <verb>
+	git <verb> --help
+	man git-<verb>
+	git help config(config命令手册)
+目录改名：mv sourceDic destinationDic
+对现有项目进行管理，需要进入该目录，然后git init
+git add命令对指定文件进行跟踪并提交：
+	git add fileName1
+	git add fileName2
+	git add fileName3
+	git commit -m 'initial project version'
+克隆仓库命令：git clone [url] mylibgit(本地库名改为mylibgit)
+git status:检查文件所处状态
+git -s status:紧凑输出文件所处状态 M标记在左边表示被修改并放进缓冲区，在右边表示被修改但是没有放进缓冲区
+git diff:通过文件补丁的格式显示具体哪些行为发生了改变
+git commit 提交修改（注意一定要查看是不死都已经暂存起来了！！）
+git remote add origin https://github.com/Leocodefocus/project.git
+git push origin master(做了本地提交后就可以通过此命令推送到github)
+sudo binwalk:
+    1:-B/--signature firmware.extension 发现文件的结构，大小，界限等；
+    2: -R/--raw=<string> 查找包含<string>的文件
+    3:-A/--opcodes  找到执行码的位置
+    4:-m/--magic=<file> 加载一个签名文件，里面包含你想查询的签名
+    5:-b/--dumb 禁用智能签名匹配，当当在错误的积极签名里的智能签名引起其他有效签名丢失时有用
+    6:-I/--invalid 展示所有结果，即使那些被标记为无效的
+    7:-x/--exclude=<filter> 排除匹配特定过滤器的签名
+    8:-y/--include=<filter> 仅仅包含--------------
+    9:-Y/--disasm 试图去识别出包含在文件中的执行码的CPU结构，可配合--verbose
+    10:-T/--minsn 设置一个连续指令的最小值--》一个被认为有效的反编译结果，默认是500条
+    11:-k/--continue 命令--disasm 不要在第一个结果时停止
+    12:-E/--entropy 执行一个输入文件熵的分析，并且产生熵图
+    13:-J/--save 自动保存-E产生的图像到一个PNG,而不再展示
+    14:-Q/--nlegend 忽略图例
+    15:-N/--nplot 禁止展示图像熵图
+    16:-H/--high=<float> 设置上升沿触发水平
+    17:-L/--low=<float> 设置下降沿~~
+    18:-W/--hexdump Performs a hex dump of the input file(s) and color-codes bytes as follows:
+		Green:These bytes were the same in all files
+		Red:These bytes were different in all files
+		Blue:These bytes were only different in some files
+	binwalk -W --block=8 --length=64 firmware1.bin firmware2.bin firmware3.bin
+    19:-G/--green Only display lines that contain green bytes during a --hexdump
+    20:-i/--red
+    21:-U/--blue
+    22:-w/--terse When we performing a --hexdump,only display a hex dump of the first file
+    23:-e/--extract 提取
+    24:-D/--dd=<type:ext[:cmd]>
+	type:签名描述的小写字母
+	ext:存储数据磁盘时的文件扩展名
+	cmd:可选命令，在数据被存入磁盘后执行
+	example：binwalk -D 'zip archive:zip:unzip %e' firmware.bin
+    

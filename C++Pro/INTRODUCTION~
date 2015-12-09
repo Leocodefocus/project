@@ -1,0 +1,7 @@
+Environment:Ubuntu 14.04 LTS
+Compiler:g++,VIM
+Notes:
+solution2:
+	fee，rate，and minbalance are set as constant
+Compile Method:Set the path for vim as source files' path,compile files via 'make' ，then run solution1(or solution2) via ./solution1(or ./solution2).
+
