@@ -1,9 +1,0 @@
-binwalk --diff -K 8 firmware_.extension:打不开文件‘diff’
-
-git remote add origin https://github.com/Leocodefocus/project.git
-git push origin master(做了本地提交后就可以通过此命令推送到github)
-
-文件传输：python ./droopy.py -m "Hi,it's me Bob.You can send me a file." -p ./uploads/exp2000
-
-
-
