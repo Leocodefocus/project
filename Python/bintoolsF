@@ -1,0 +1,46 @@
+#!/usr/bin/python
+'''
+@Author:Leocodefocus
+Description:scan firmware and print the description of scan results,then cut the firmware according to the scanning's results
+Date:2016/1/22
+Company:Bupt
+'''
+import os
+import commands
+import binwalk
+import binwalk.modules
+import string
+fileName=raw_input("FileName:")
+sName=fileName.split('.')[0]
+i=0
+flag=[]
+results=[]
+for module in binwalk.scan(fileName,signature=True,quiet=True):
+	print ("%s Results:"%module.name)
+	i+=1
+	j=0
+	for result in module.results:
+		print ("\t%s	0x%.8X	%s"%(result.file.name,result.offset,result.description))
+		j=j+1
+	flag.append(j)
+	results.append(module)
+#print i
+#print results
+flag=0
+for module in results:
+	i=0
+	length=len(module.results)
+	print length
+	for result in module.results:
+		file_type=""
+		file_type=result.description[0:3]
+		if i+1==length:
+			ddcommand="dd if="+fileName+" of="+sName+"_cut"+str(flag)+str(i)+file_type+" bs=1 "+"skip="+str(result.offset)
+		else:
+			count=module.results[i+1].offset-module.results[i].offset
+			ddcommand="dd if="+fileName+" of="+sName+"_cut"+str(flag)+str(i)+file_type+" bs=1 "+"skip="+str(result.offset)+" count="+str(count)	
+		if result.description.find("Unix path")<0:
+			(status, output) = commands.getstatusoutput(ddcommand)
+			print status,output
+		i+=1
+	flag+=1		
