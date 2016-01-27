@@ -1,16 +1,16 @@
-//函数模板
 #include<iostream>
 using namespace std;
-template <class T> T getMax(T a,T b){
-	T result;
-	result=(a>b)?a:b;
-	return result;
-}
+class test{
+	public:
+		test(){cout<<"Cons\n"<<endl;}
+		~test(){cout<<"Des\n"<<endl;}
+};
 int main(){
-	int a=10;
-	int b=5;
-	int c;
-	c=getMax(a,b);
-	cout<<c<<endl;
+	for(int i=0;i<2;i++){
+		test cd;
+	}
+	char* str="test";
+	cout<<*str<<endl;
+	cout<<str<<endl;
 	return 0;
 }
