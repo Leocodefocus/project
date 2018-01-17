@@ -1,5 +1,6 @@
 #ifndef STRUCT_H
 #define STRUCT_H
+#include<stack>
 struct BinaryTreeNode{
     int m_nValue;
     BinaryTreeNode* p_nLeft;
