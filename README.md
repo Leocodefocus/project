@@ -7,4 +7,4 @@ linux shell
 android
 python
 
-Some practice is my learning exercises,may be common with some project.But there is no commercial usages.
+g++ *.cpp -o * -std=c++11
