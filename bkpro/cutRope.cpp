@@ -2,6 +2,7 @@
 #include<cstdlib>
 #include<iostream>
 #include<memory.h>
+#include<math.h>
 
 using namespace std;
 
@@ -29,9 +30,20 @@ int maxMultiply(int length){
     return max;
 }
 
+int maxGreedy(int length){
+    if(length<2) return 0;
+    if(length==2) return 1;
+    if(length==3) return 2;
+    int timesOf3 = length/3;
+    if(length-timesOf3*3==1) timesOf3-=1;
+    int timesOf2 = (length-3*timesOf3)/2;
+    return (int)(pow(3,timesOf3))*(int)(pow(2,timesOf2));    
+}
+
 int main(int argc,char* argv[]){
     int length = 8;
     int result = maxMultiply(length);
-    printf("%d\n",result);
+    int result1 = maxGreedy(length);
+    printf("%d %d\n",result,result1);
     return 0;
 }
