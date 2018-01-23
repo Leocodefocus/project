@@ -28,7 +28,7 @@ int main(int argc,char* argv[]){
         int nm = num[n];num[n]=num[i];num[i]=nm;
     }
     for(n=0;n<size;n++)        
-        fprintf(fp,"%d",num[n]);
+        fprintf(fp,"%d ",num[n]);
     fclose(fp);
     return 0;
 }
