@@ -29,7 +29,7 @@ int main(int argc,char* argv[]){
     }
     for(n=0;n<size;n++){        
         fprintf(fp,"%d ",num[n]);
-        if((n+1)%1000==0) fprintf(fp,"%s","\n");
+        //if((n+1)%1000==0) fprintf(fp,"%s","\n");
     }
     fclose(fp);
     return 0;
